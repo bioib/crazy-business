@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Crazy Business - Game Simulasi Investasi dan Bisnis Tycoon</title>
+    <meta
+      name="description"
+      content="Mainkan Crazy Business, game simulasi investasi real-time! Kelola portofolio saham dan kripto, tingkatkan kekayaan, dan jadilah tycoon bisnis. Mulai sekarang!"
+    />
+    <meta
+      name="keywords"
+      content="game investasi, simulasi bisnis, tycoon game, saham, kripto, Crazy Business, manajemen portofolio"
+    />
+    <meta name="author" content="Crazy Business Team" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Crazy Business - Game Simulasi Investasi dan Bisnis Tycoon"
+    />
+    <meta
+      property="og:description"
+      content="Nikmati pengalaman simulasi investasi di Crazy Business. Kelola saham, kripto, dan portofolio Anda untuk menjadi tycoon bisnis terhebat!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https:/crazy-business.foreynd.space" />
+    <meta
+      property="og:image"
+      content="https:/crazy-business.foreynd.space/images/og-image.jpg"
+    />
+    <meta property="og:image:alt" content="Crazy Business Game Screenshot" />
+    <meta property="og:site_name" content="Crazy Business" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Crazy Business - Game Simulasi Investasi dan Bisnis Tycoon"
+    />
+    <meta
+      name="twitter:description"
+      content="Mainkan Crazy Business, game simulasi investasi real-time untuk mengelola saham, kripto, dan portofolio Anda. Jadilah tycoon bisnis sekarang!"
+    />
+    <meta
+      name="twitter:image"
+      content="https:/crazy-business.foreynd.space/images/twitter-image.jpg"
+    />
+    <meta name="twitter:image:alt" content="Crazy Business Game Screenshot" />
+    <meta name="canonical" content="https:/crazy-business.foreynd.space" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-chart-line"></i> INVESTASI PRO</h1>
+        <p class="subtitle">1 menit waktu nyata = 1 hari dalam game</p>
+      </header>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="dashboard">Dashboard</div>
+        <div class="tab" data-tab="market">Pasar</div>
+        <div class="tab" data-tab="portfolio">Portofolio</div>
+      </div>
+
+      <div id="dashboard-tab">
+        <div class="time-display">
+          <div class="time-card">
+            <h3>WAKTU GAME</h3>
+            <div class="digital-clock" id="digital-clock">HARI 1</div>
+            <div>Jam Digital</div>
+          </div>
+          <div class="calendar-card">
+            <h3>KALENDER</h3>
+            <div class="calendar-date" id="calendar-date">1 Jan</div>
+            <div class="calendar-day" id="calendar-day">Senin</div>
+            <div id="calendar-year">2024</div>
+          </div>
+        </div>
+        <div class="game-info">
+          <div class="info-card">
+            <h3>SALDO</h3>
+            <div class="value">Rp <span id="balance">0</span></div>
+          </div>
+          <div class="info-card">
+            <h3>NILAI PORTOFOLIO</h3>
+            <div class="value">Rp <span id="portfolio-value">0</span></div>
+          </div>
+          <div class="info-card time-card">
+            <h3>HARI KE</h3>
+            <div class="value"><span id="day">1</span></div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <div class="chart-header">
+            <div class="chart-title">Pertumbuhan Portofolio</div>
+            <div class="chart-value">
+              Rp <span id="portfolio-total">0</span>
+            </div>
+          </div>
+          <div class="chart" id="investment-chart"></div>
+        </div>
+        <div class="work-panel">
+          <div class="work-header">
+            <div class="work-title">Kerja Lepas</div>
+            <div class="work-level">Level <span id="work-level">1</span></div>
+          </div>
+          <div class="work-progress">
+            <div
+              class="progress-bar"
+              id="work-progress"
+              style="width: 0%"
+            ></div>
+          </div>
+          <button class="work-btn">
+            <i class="fas fa-hammer"></i> KERJA SEKARANG (+Rp
+            <span id="work-amount">5.000</span>)
+          </button>
+          <div class="work-info">
+            Klik untuk bekerja dan dapatkan uang. Level berikutnya: Rp
+            <span id="next-level">100.000</span>
+          </div>
+        </div>
+        <div class="history">
+          <h2><i class="fas fa-history"></i> RIWAYAT TERBARU</h2>
+          <div id="history-list"></div>
+        </div>
+      </div>
+
+      <div id="market-tab" style="display: none">
+        <div class="sub-tabs">
+          <div class="sub-tab active" data-asset-type="stock">Saham</div>
+          <div class="sub-tab" data-asset-type="crypto">Kripto</div>
+        </div>
+        <div class="market-container" id="stock-market"></div>
+        <div
+          class="market-container"
+          id="crypto-market"
+          style="display: none"
+        ></div>
+      </div>
+
+      <div id="portfolio-tab" style="display: none">
+        <div class="market-container" id="portfolio-container"></div>
+        <div class="history" id="empty-portfolio" style="display: none">
+          <h2><i class="fas fa-info-circle"></i> Portofolio Kosong</h2>
+          <p style="text-align: center; padding: 10px; opacity: 0.8">
+            Anda belum memiliki aset. Kunjungi pasar untuk mulai berinvestasi.
+          </p>
+        </div>
+      </div>
+
+      <div class="time-info">
+        <p>Waktu game: 1 menit nyata = 1 hari game</p>
+      </div>
+    </div>
+
+    <div class="modal" id="asset-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Detail Aset</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="asset-detail">
+          <div class="asset-detail-icon" id="modal-asset-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="asset-detail-name" id="modal-asset-name">Nama Aset</div>
+          <div class="asset-detail-symbol" id="modal-asset-symbol">SYMBOL</div>
+          <div class="asset-detail-price">
+            Rp <span id="modal-asset-price">0</span>
+          </div>
+          <div class="asset-change" id="modal-asset-change">+0.00%</div>
+          <div class="asset-detail-chart" id="modal-asset-chart"></div>
+        </div>
+        <div class="input-group">
+          <label for="asset-amount">Jumlah Unit</label>
+          <input type="number" id="asset-amount" min="1" value="1" />
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn buy-btn">BELI</button>
+          <button class="action-btn sell-btn">JUAL</button>
+        </div>
+        <div style="margin-top: 20px; text-align: center; font-size: 0.9rem">
+          Dimiliki: <span id="modal-owned">0</span> unit
+        </div>
+      </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
